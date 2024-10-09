@@ -1,5 +1,6 @@
 import data_download as dd
 import data_plotting as dplt
+import calculation as clc
 
 
 def main():
@@ -18,6 +19,10 @@ def main():
     stock_data = dd.add_moving_average(stock_data)
 
     dplt.create_and_save_plot(stock_data, ticker, period)
+
+    clc.calculate_and_display_average_price(stock_data)
+
+    clc.notify_if_strong_fluctuations(stock_data, threshold)
 
 
 if __name__ == "__main__":
