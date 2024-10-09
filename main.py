@@ -26,7 +26,7 @@ def main():
 
     save_to_csv = input("Хотите сохранить данные? y/N: ")
     if save_to_csv == 'y':
-        filename = input("")
+        filename = input("Введите название файла: ")
         try:
             stock_data.to_csv(f'{filename}.csv', index=False)
         except Exception as e:
