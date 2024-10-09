@@ -11,10 +11,17 @@ def main():
           "с начала года, макс.")
 
     ticker = input("Введите тикер акции (например, «AAPL» для Apple Inc):»")
-    period = input("Введите период для данных (например, '1mo' для одного месяца): ")
-    threshold = float(input("Введите порог для уведомления: "))
 
-    stock_data = dd.fetch_stock_data(ticker, period)
+    date_start = input("Введите дату начала периода в формате YYYY-MM-DD (для периода по умолчанию, "
+                           "нажмите Enter): ")
+    date_end = input("Введите дату окончания периода в формате YYYY-MM-DD (для текущей даты или периода "
+                             "по умолчанию, нажмите Enter): ")
+
+    period = input("Введите период для данных (например, '1mo' для одного месяца): ")
+
+    stock_data = dd.fetch_stock_data(ticker.upper(), period, date_start, date_end)
+
+    threshold = float(input("Введите порог для уведомления: "))
 
     stock_data = dd.add_moving_average(stock_data)
 

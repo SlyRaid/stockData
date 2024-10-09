@@ -1,10 +1,14 @@
 import yfinance as yf
 
 
-def fetch_stock_data(ticker, period='1mo'):
+def fetch_stock_data(ticker, period, date_start=None, date_end=None):
     stock = yf.Ticker(ticker)
     data = stock.history(period=period)
-    return data
+    if date_start is None:
+        return data
+    else:
+        data = stock.history(start=date_start, end=date_end)
+        return data
 
 
 def add_moving_average(data, window_size=5):
