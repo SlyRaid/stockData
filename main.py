@@ -18,6 +18,8 @@ def main():
 
     stock_data = dd.add_moving_average(stock_data)
 
+    dd.rsi(stock_data)
+
     dplt.create_and_save_plot(stock_data, ticker, period)
 
     clc.calculate_and_display_average_price(stock_data)
