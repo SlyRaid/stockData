@@ -24,6 +24,14 @@ def main():
 
     clc.notify_if_strong_fluctuations(stock_data, threshold)
 
+    save_to_csv = input("Хотите сохранить данные? y/N: ")
+    if save_to_csv == 'y':
+        filename = input("")
+        try:
+            stock_data.to_csv(f'{filename}.csv', index=False)
+        except Exception as e:
+            print(f'Не удалось экспортировать данные в CSV. Ошибка: {e}')
+
 
 if __name__ == "__main__":
     main()
